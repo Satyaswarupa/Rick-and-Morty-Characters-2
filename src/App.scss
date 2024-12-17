@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", serif;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Fix the screen height */
+
+  .content {
+    display: flex;
+    flex: 1; /* Take up remaining space below the navbar */
+    overflow: hidden; /* Prevent the screen from scrolling */
+
+    .sidebar {
+      width: 250px;
+      background:  #001427;
+      padding: 10px;
+      overflow-y: auto; /* Make the sidebar scrollable */
+      height: 100%; /* Take full height of the content area */
+      border-right: 1px solid #ccc;
+    }
+
+    .episode-details {
+      flex: 1; /* Take the remaining width */
+      padding: 20px;
+      overflow-y: auto; /* Make the character list scrollable */
+      height: 100%; /* Take full height of the content area */
+      background: #001427;
+      color: #fff;
+      h2 {
+        margin: 0 0 10px;
+        color: #fff;
+      }
+
+      .characters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .character-card {
+          width: 120px;
+          text-align: center;
+          background-color: #001427;
+
+          img {
+            width: 100%;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .mobile-episodes {
+    display: flex;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    padding: 10px;
+    background: #001427;
+    border: 1px solid rgba(255, 255, 255, 0.464);
+    position: sticky; /* Stick it to the bottom */
+    bottom: 0; /* Align at the bottom */
+    left: 0;
+    right: 0;
+    z-index: 100; /* Ensure it stays on top of other content */
+
+    .mobile-episode-card {
+      flex-shrink: 0; /* Prevent shrinking */
+      min-width: 150px; /* Fixed width for cards */
+      margin: 0 10px; /* Space between cards */
+      padding: 10px;
+      background: #001931;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      white-space: nowrap; /* Prevent text from wrapping */
+      color: #ccc;
+      box-shadow: 0 4px 8px rgba(255, 255, 0, 0.633);
+    }
+  }
+}
+.sidebar,
+.episode-details {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      height: auto;
+      border-right: none;
+    }
+  
+    .characters {
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding: 10px;
+      gap: 15px;
+    }
+  
+    .character-card {
+      width: 150px;
+      margin-bottom: 15px; /* Maintain gap between cards */
+    }
+  }

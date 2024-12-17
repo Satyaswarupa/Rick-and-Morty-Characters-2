@@ -1,0 +1,25 @@
+.sidebar {
+    width: 250px;
+    background: #f8f9fa;
+    padding: 10px;
+    overflow-y: auto;
+  
+    .episode-card {
+      padding: 10px;
+      margin: 20px 0;
+      background: #001931;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      color: #f8f9fa;
+      box-shadow: 0 4px 8px rgba(255, 242, 0, 0.633); 
+  
+      &:hover {
+        background: #00152b;
+      }
+    }
+  }
+  .sidebar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Edge */
+  }
+  
